@@ -1,0 +1,76 @@
+:root {
+  --paper: #fffefa;
+  --ink: #172b3d;
+  --ink-soft: #394b5a;
+  --muted: #6f7a70;
+  --line: #e4e8df;
+  --deep: #14283a;
+  --green: #39704d;
+  --lime: #c6dd91;
+  --sans: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  --display: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6f8e5e;
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--deep);
+  background: var(--lime);
+}
+
+#root {
+  min-height: 100vh;
+  overflow: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
