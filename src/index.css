@@ -5,8 +5,8 @@
   --muted: #6f7a70;
   --line: #e4e8df;
   --deep: #14283a;
-  --green: #39704d;
-  --lime: #c6dd91;
+  --blue: #2878b8;
+  --energy-light: #b8e3f5;
   --sans: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
   --display: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
   --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
@@ -55,13 +55,13 @@ textarea {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #6f8e5e;
+  outline: 2px solid #65a7d8;
   outline-offset: 3px;
 }
 
 ::selection {
   color: var(--deep);
-  background: var(--lime);
+  background: var(--energy-light);
 }
 
 #root {
