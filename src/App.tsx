@@ -1,11 +1,7 @@
-import { useRef, useState, type FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import './App.css'
 
-const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim() ?? ''
-const hasContactEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-  contactEmail,
-)
-const hasIntroVideo = import.meta.env.VITE_KYLE_VIDEO_AVAILABLE === 'true'
+const contactEmail = 'unitedenergypro@gmail.com'
 const currentYear = new Date().getFullYear()
 const initialInterest =
   new URLSearchParams(window.location.search).get('interest') === 'effigy'
@@ -47,68 +43,23 @@ function ArrowIcon({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 function IntroVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoStarted, setVideoStarted] = useState(false)
-  const [videoUnavailable, setVideoUnavailable] = useState(!hasIntroVideo)
-
-  async function playIntro() {
-    const player = videoRef.current
-    if (!player) return
-
-    player.src = '/videos/kyle-effigy-intro.mp4'
-    player.load()
-    setVideoStarted(true)
-
-    try {
-      await player.play()
-    } catch {
-      setVideoStarted(false)
-      setVideoUnavailable(true)
-    }
-  }
-
-  function handleVideoError() {
-    setVideoStarted(false)
-    setVideoUnavailable(true)
-  }
+  const [videoUnavailable, setVideoUnavailable] = useState(false)
 
   return (
     <div className="hero-video">
       <video
-        ref={videoRef}
         aria-label="Kyle O’ Watts, The Energy Guy: 30-second introduction"
-        controls={videoStarted}
-        onError={handleVideoError}
+        controls
+        onError={() => setVideoUnavailable(true)}
         playsInline
-        preload="none"
+        preload="metadata"
+        src="/video/kyle-effigy-intro.mp4"
       />
-      {!videoStarted && (
+      {videoUnavailable && (
         <div className="hero-video-placeholder">
           <span className="hero-video-label">Kyle O’ Watts · The Energy Guy</span>
-          <button
-            aria-label={
-              videoUnavailable
-                ? 'Kyle O’ Watts introduction video coming soon'
-                : 'Play Kyle O’ Watts’ 30-second introduction'
-            }
-            className="hero-play-button"
-            disabled={videoUnavailable}
-            onClick={playIntro}
-            type="button"
-          >
-            <span className="play-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="m9 6 10 6-10 6V6Z" fill="currentColor" />
-              </svg>
-            </span>
-            <span>
-              {videoUnavailable ? 'Video coming soon' : 'Play the 30-second intro'}
-            </span>
-          </button>
           <span className="hero-video-duration">
-            {videoUnavailable
-              ? 'The introduction is being prepared'
-              : 'A personal introduction to UEP'}
+            The introduction video is unavailable.
           </span>
         </div>
       )}
@@ -184,6 +135,7 @@ function Footer() {
         <div className="footer-links">
           <span className="eyebrow">Get in touch</span>
           <a href="/contact">Contact UEP <ArrowIcon diagonal /></a>
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
           <span>Maryland</span>
         </div>
       </div>
@@ -212,9 +164,9 @@ function HomePage() {
               <span>work better.</span>
             </h1>
             <p className="hero-description">
-              A more comfortable, safer, more efficient home starts with
-              understanding how it works. UEP helps you find the right next
-              step.
+              Know where your home is losing energy. A more comfortable, safer,
+              more efficient home starts with understanding how it works. UEP
+              helps you find the right next step.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="/contact">
@@ -556,10 +508,6 @@ function ContactPage() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (!hasContactEmail) {
-      setMessage('Email contact is not configured for this website yet.')
-      return
-    }
 
     const body = [
       `Name: ${form.name}`,
@@ -628,9 +576,10 @@ function ContactPage() {
             </span>
             <h2>Tell us a little about what you need.</h2>
             <p>
-              {hasContactEmail
-                ? 'A draft will open in your email app so you can review it and send it to UEP. An appointment is not confirmed until UEP responds.'
-                : 'UEP’s public contact details are being finalized. No information entered here will be sent or saved.'}
+              This form opens a draft in your email app; it does not submit
+              directly. Review and send the draft to UEP at{' '}
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>. An
+              appointment is not confirmed until UEP responds.
             </p>
             <div className="contact-aside-note">
               <span className="note-line" />
@@ -646,7 +595,6 @@ function ContactPage() {
                 Your name
                 <input
                   autoComplete="name"
-                  disabled={!hasContactEmail}
                   name="name"
                   onChange={(event) =>
                     setForm({ ...form, name: event.target.value })
@@ -660,7 +608,6 @@ function ContactPage() {
                 Email address
                 <input
                   autoComplete="email"
-                  disabled={!hasContactEmail}
                   name="email"
                   onChange={(event) =>
                     setForm({ ...form, email: event.target.value })
@@ -675,7 +622,6 @@ function ContactPage() {
             <label>
               I’m interested in
               <select
-                disabled={!hasContactEmail}
                 name="service"
                 onChange={(event) =>
                   setForm({ ...form, service: event.target.value })
@@ -691,7 +637,6 @@ function ContactPage() {
             <label>
               Preferred appointment date (optional)
               <input
-                disabled={!hasContactEmail}
                 name="appointmentDate"
                 onChange={(event) =>
                   setForm({ ...form, appointmentDate: event.target.value })
@@ -703,7 +648,6 @@ function ContactPage() {
             <label>
               What would you like us to know?
               <textarea
-                disabled={!hasContactEmail}
                 name="message"
                 onChange={(event) =>
                   setForm({ ...form, message: event.target.value })
@@ -713,14 +657,8 @@ function ContactPage() {
                 value={form.message}
               />
             </label>
-            {!hasContactEmail && (
-              <p className="form-note">
-                Contact details will be added here soon.
-              </p>
-            )}
             <button
               className="button button-dark"
-              disabled={!hasContactEmail}
               type="submit"
             >
               Send an inquiry <ArrowIcon />

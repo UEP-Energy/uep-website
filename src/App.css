@@ -27,7 +27,7 @@
   width: 41px;
   height: 41px;
   border-radius: 12px;
-  background: var(--green);
+  background: var(--blue);
 }
 
 .brand-mark svg {
@@ -75,7 +75,7 @@
 .primary-nav > a:hover,
 .primary-nav > a:focus-visible,
 .footer-links > a:hover {
-  color: var(--green);
+  color: var(--blue);
 }
 
 .primary-nav .nav-contact {
@@ -91,8 +91,8 @@
 
 .nav-contact.active,
 .primary-nav .nav-contact:hover {
-  border-color: var(--green);
-  color: var(--green);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .arrow-icon {
@@ -149,8 +149,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 0 4px rgb(194 218 144 / 13%);
+  background: var(--energy-light);
+  box-shadow: 0 0 0 4px rgb(184 227 245 / 13%);
 }
 
 .hero h1,
@@ -168,7 +168,7 @@
 .contact-hero h1 em,
 .kyle-copy h2 em,
 .effigy-copy h2 em {
-  color: var(--lime);
+  color: var(--energy-light);
   font-style: normal;
 }
 
@@ -212,11 +212,11 @@
 
 .button-primary {
   color: var(--deep);
-  background: var(--lime);
+  background: var(--energy-light);
 }
 
 .button-primary:hover {
-  background: #d5e7ae;
+  background: #cbeaf8;
 }
 
 .button-dark {
@@ -225,7 +225,7 @@
 }
 
 .button-dark:hover {
-  background: var(--green);
+  background: var(--blue);
 }
 
 .button:disabled {
@@ -238,7 +238,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--green);
+  color: var(--blue);
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
@@ -270,7 +270,7 @@
   width: 28px;
   height: 1px;
   flex: 0 0 auto;
-  background: var(--lime);
+  background: var(--energy-light);
 }
 
 .hero-visual {
@@ -313,7 +313,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 68% 28%, rgb(198 221 145 / 24%), transparent 33%),
+    radial-gradient(ellipse at 68% 28%, rgb(184 227 245 / 24%), transparent 33%),
     linear-gradient(0deg, rgb(20 40 58 / 70%), rgb(20 40 58 / 26%));
 }
 
@@ -343,58 +343,12 @@
   letter-spacing: 0.1em;
 }
 
-.hero-play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 17px 12px 12px;
-  border: 1px solid rgb(255 255 255 / 45%);
-  border-radius: 40px;
-  background: rgb(20 40 58 / 36%);
-  color: var(--paper);
-  font-size: 11px;
-  font-weight: 650;
-  transform: translate(-50%, -50%);
-  transition:
-    background 160ms ease,
-    transform 160ms ease;
-}
-
-.hero-play-button:hover:not(:disabled) {
-  background: rgb(20 40 58 / 72%);
-  transform: translate(-50%, -50%) scale(1.03);
-}
-
-.hero-play-button:disabled {
-  cursor: default;
-  opacity: 0.82;
-}
-
-.play-icon {
-  display: grid;
-  width: 51px;
-  height: 51px;
-  flex: 0 0 auto;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--lime);
-  color: var(--deep);
-}
-
-.play-icon svg {
-  width: 22px;
-  height: 22px;
-}
-
 .hero-orbit {
   position: absolute;
   z-index: 1;
   width: 265px;
   height: 265px;
-  border: 1px solid rgb(205 224 173 / 13%);
+  border: 1px solid rgb(184 227 245 / 13%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -452,7 +406,7 @@
 }
 
 .section-kicker > span {
-  color: var(--green);
+  color: var(--blue);
   font-size: 10px;
   letter-spacing: 0.1em;
 }
@@ -523,7 +477,7 @@
   place-items: center;
   border: 1px solid rgb(20 40 58 / 33%);
   border-radius: 50%;
-  color: var(--green);
+  color: var(--blue);
   font-family: var(--serif);
   font-size: 50px;
 }
@@ -575,7 +529,7 @@
 
 .kyle-copy h2 em,
 .effigy-copy h2 em {
-  color: var(--green);
+  color: var(--blue);
   font-family: var(--serif);
 }
 
@@ -646,7 +600,7 @@
 }
 
 .about-stat strong {
-  color: var(--green);
+  color: var(--blue);
   font-family: var(--display);
   font-size: clamp(42px, 4.3vw, 56px);
   font-weight: 500;
@@ -655,7 +609,7 @@
 }
 
 .about-stat strong span {
-  color: #7d9a69;
+  color: #65a7d8;
 }
 
 .about-stat > span {
@@ -737,7 +691,7 @@
 .service-icon svg {
   width: 27px;
   height: 27px;
-  stroke: var(--green);
+  stroke: var(--blue);
   stroke-width: 1.45;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -764,7 +718,7 @@
   position: absolute;
   right: 24px;
   bottom: 25px;
-  color: var(--green);
+  color: var(--blue);
 }
 
 .services-footnote {
@@ -775,7 +729,7 @@
 }
 
 .footnote-star {
-  color: var(--green);
+  color: var(--blue);
   font-size: 18px;
 }
 
@@ -817,7 +771,7 @@
 }
 
 .step-count {
-  color: var(--green);
+  color: var(--blue);
   font-family: var(--serif);
   font-size: 20px;
   line-height: 1.1;
@@ -831,7 +785,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 485px;
-  background: var(--green);
+  background: var(--blue);
 }
 
 .effigy-art {
@@ -879,7 +833,7 @@
 .effigy-wordmark {
   position: relative;
   z-index: 1;
-  color: var(--green);
+  color: var(--blue);
   font-family: var(--display);
   font-size: clamp(64px, 10vw, 116px);
   font-weight: 450;
@@ -889,7 +843,7 @@
 .effigy-spark {
   position: absolute;
   z-index: 1;
-  color: var(--green);
+  color: var(--blue);
 }
 
 .spark-one {
@@ -939,7 +893,7 @@
 }
 
 .effigy-copy h2 em {
-  color: var(--lime);
+  color: var(--energy-light);
 }
 
 .effigy-copy > p {
@@ -948,7 +902,7 @@
 }
 
 .effigy-copy .text-link {
-  color: var(--lime);
+  color: var(--energy-light);
 }
 
 .closing-cta {
@@ -957,7 +911,7 @@
   min-height: 407px;
   overflow: hidden;
   place-items: center;
-  background: #14251e;
+  background: var(--deep);
   color: var(--paper);
   text-align: center;
 }
@@ -1116,7 +1070,7 @@
 .location-mark svg {
   width: 100%;
   height: 100%;
-  stroke: var(--lime);
+  stroke: var(--energy-light);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.5;
@@ -1145,7 +1099,7 @@
   position: relative;
   z-index: 1;
   width: min(92%, 475px);
-  stroke: var(--green);
+  stroke: var(--blue);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.35;
@@ -1405,17 +1359,6 @@
   .hero-video-duration {
     bottom: 25px;
     left: 23px;
-  }
-
-  .hero-play-button {
-    gap: 10px;
-    padding: 9px 13px 9px 9px;
-    font-size: 10px;
-  }
-
-  .play-icon {
-    width: 43px;
-    height: 43px;
   }
 
   .hero-orbit {
