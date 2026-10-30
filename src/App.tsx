@@ -53,7 +53,7 @@ function IntroVideo() {
         onError={() => setVideoUnavailable(true)}
         playsInline
         preload="metadata"
-        src="/videos/kyle-effigy-intro.mp4"
+        src="/video/kyle-effigy-intro.mp4"
       />
       {videoUnavailable && (
         <div className="hero-video-placeholder">
